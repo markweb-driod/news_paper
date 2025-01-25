@@ -1,8 +1,13 @@
 from django import forms
-from django.contrib.auth import UserCreationForms, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
 
-class Createcustomuser(UserCreationForms):
-    class Meta(UserCreationForms.Meta):
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = UserCreationForms.Meta.Fields + ('age')
+        fields = UserCreationForm.Meta.fields + ('age',)  # Corrected the tuple syntax
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):  # Corrected inheritance here                  
+        model = CustomUser
+        fields = UserChangeForm.Meta.fields
