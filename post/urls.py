@@ -1,6 +1,6 @@
 from django.urls import path
-from.models import CustomUser
+from .views import Signup
 
 urlpatterns = [
-    path('', signup.as_view(), name = 'signup')
+    path('', Signup.as_view(), name = 'signup')
 ]
