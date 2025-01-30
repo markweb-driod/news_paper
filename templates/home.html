@@ -1,17 +1,20 @@
  <html>
     <head>NEWS APPLICATION</head>
 
-   
-        {% if user.is_authenticated}
-        {% block content%}
+        {% block content %}
+        {% if user.is_authenticated %}
+       
 
-        <p> Hello {% user.name %}</p>
+        <p> Hello {{ user.username }}</p>
         <p><a href="{% url 'logout' %}">Log Out</a></p>
 
-        {% endblock content%}
         {% else %}
-        <p>You are not logged in, <a href="{% url 'login' %}"> login </a> to continue  </p>
 
+        <p>You are not logged in, <a href="{% url 'login' %}"> login </a> to continue  </p>
+        {% endif  %}
+
+        {% endblock content%}
+ </html>
 
 
 
